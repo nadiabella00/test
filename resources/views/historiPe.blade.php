@@ -6,9 +6,23 @@
     </div>
 
     <div class="container py-5">
+        <div class="row justify-content-center mb-4">
+            <div class="col-md-4 text-center">
+                <div class="upload-area" style="border: 2px dashed #007bff; padding: 20px; border-radius: 10px;">
+                    <h5 class="mb-3">Upload Bukti Pemesanan</h5>
+                    <input type="text" class="form-control mb-3" placeholder="Nama" required>
+                    <input type="text" class="form-control mb-3" placeholder="Tanggal Pemesanan (e.g., 01 Juni 2024)" required>
+                    <textarea class="form-control mb-3" placeholder="Teks Review" rows="3" required></textarea>
+                    <input type="file" class="form-control mb-3" accept="image/*" required>
+                    <button class="btn btn-primary">Upload</button>
+                </div>
+            </div>
+        </div>
+
+    <div class="container py-5">
         <div class="row justify-content-center">
             <!-- Card 1 -->
-            <div class="col-md-4 mb-4">
+            <div class="col-lg-4 col-md-6 mb-4">
                 <div class="card h-100">
                     <img src="img/zayn.jpg" class="card-img-top img-thumbnail mx-auto d-block" alt="zayn malik - 01 juni 2024" style="width: 80px; height: 80px;">
                     <div class="card-body text-center">
@@ -23,7 +37,7 @@
             </div>
 
             <!-- Card 2 -->
-            <div class="col-md-4 mb-4">
+            <div class="col-lg-4 col-md-6 mb-4">
                 <div class="card h-100">
                     <img src="img/DPR IAN LUV.jpg" class="card-img-top img-thumbnail mx-auto d-block" alt="christian yu - 17 agustus 2024" style="width: 80px; height: 80px;">
                     <div class="card-body text-center">
@@ -38,7 +52,7 @@
             </div>
 
             <!-- Card 3 -->
-            <div class="col-md-4 mb-4">
+            <div class="col-lg-4 col-md-6 mb-4">
                 <div class="card h-100">
                     <img src="img/daniell.jpg" class="card-img-top img-thumbnail mx-auto d-block" alt="daniel caesar - 30 januari 2024" style="width: 80px; height: 80px;">
                     <div class="card-body text-center">

@@ -23,43 +23,43 @@
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="css/styles.css" rel="stylesheet" />
 </head>
-<body>
+<body class="d-flex flex-column min-vh-100">
     <!-- Responsive navbar-->
-   <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container-fluid">
-        <!-- Navbar brand and toggler -->
-        <a class="navbar-brand" href="/home"><strong>VANA</strong> Carwash</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <!-- Navbar brand and toggler -->
+            <a class="navbar-brand" href="/"><strong>VANA</strong> Carwash</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-        <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
-            <!-- Centered navigation links -->
-            <ul class="navbar-nav mb-2 mb-lg-0">
-                <li class="nav-item"><a class="nav-link" href="/histori">Histori</a></li>
-                <li class="nav-item"><a class="nav-link" href="/paket">Paket</a></li>
-                <li class="nav-item"><a class="nav-link" href="/about">About Us</a></li>
-                <li class="nav-item"><a class="nav-link" href="#!">Petugas</a></li>
-            </ul>
+            <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
+                <!-- Centered navigation links -->
+                <ul class="navbar-nav mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link" href="/histori">Histori</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/paket">Paket</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/about">About Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/admin"><i class="bi-person-fill"></i></a></li> <!-- Added login link -->
+                </ul>
 
-            <!-- Right-aligned Contact Us link -->
-            <ul class="navbar-nav mb-2 mb-lg-0 ms-auto">
-                <li class="nav-item"><a class="nav-link" href="https://wa.me/your-phone-number" target="_blank"><i class="bi-whatsapp"></i> Contact Us</a></li>
-            </ul>
+                <!-- Right-aligned Contact Us link -->
+                <ul class="navbar-nav mb-2 mb-lg-0 ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="https://wa.me/your-phone-number" target="_blank"><i class="bi-whatsapp"></i> Contact Us</a></li>
+                </ul>
+            </div>
         </div>
-    </div>
-</nav>
+    </nav>
 
-
-
-    <main class="py-4">
+    <!-- Main content should fill the remaining space -->
+    <main class="flex-grow-1 py-4">
         @yield('content')
     </main>
 
     <!-- Footer-->
     <footer class="footer mt-auto py-3" style="background-color: lightblue;">
         <div class="container text-center">
-            <p class="text">Copyright 2024 Malang, Jawa Timur,Indonesia.</p></div>
+            <p class="text">Copyright 2024 Malang, Jawa Timur, Indonesia.</p>
+        </div>
     </footer>
 </body>
 </html>

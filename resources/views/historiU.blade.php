@@ -4,19 +4,15 @@
     <div class="header py-5" style="background-image: url('img/gambarrr.png'); width: 100%; height: 484px; background-position: center; background-size: cover; display: flex; justify-content: center; align-items: center; text-align: center; color: #ffffff; text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);">
     </div>
 
-    <div class="container py-5">
-        <div class="row justify-content-center mb-4">
-            <div class="col-md-4 text-center">
-                <div class="upload-area" style="border: 2px dashed #007bff; padding: 20px; border-radius: 10px;">
-                    <h5 class="mb-3">Upload Bukti Pemesanan</h5>
-                    <input type="text" class="form-control mb-3" placeholder="Nama" required>
-                    <input type="text" class="form-control mb-3" placeholder="Tanggal Pemesanan (e.g., 01 Juni 2024)" required>
-                    <textarea class="form-control mb-3" placeholder="Teks Review" rows="3" required></textarea>
-                    <input type="file" class="form-control mb-3" accept="image/*" required>
-                    <button class="btn btn-primary">Upload</button>
-                </div>
-            </div>
-        </div>
+    <form action="{{ route('upload.store') }}" method="POST" enctype="multipart/form-data">
+    @csrf
+    <h5 class="mb-3">Upload Bukti Pemesanan</h5>
+    <input type="text" name="nama" class="form-control mb-3" placeholder="Nama" required>
+    <input type="text" name="tanggal_pemesanan" class="form-control mb-3" placeholder="Tanggal Pemesanan (e.g., 01 Juni 2024)" required>
+    <textarea name="review" class="form-control mb-3" placeholder="Teks Review" rows="3" required></textarea>
+    <input type="file" name="file" class="form-control mb-3" accept="image/*" required>
+    <button type="submit" class="btn btn-primary">Upload</button>
+</form>
 
         <div class="row justify-content-center">
             <!-- Card 1 -->

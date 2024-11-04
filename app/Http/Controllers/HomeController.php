@@ -7,7 +7,15 @@ use Illuminate\Http\Request;
 class HomeController extends Controller
 {
 
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
 
+    public function adminDashboard()
+    {
+        return view('admin.dashboard');
+    }
     /**
      * Show the application dashboard.
      *
