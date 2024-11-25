@@ -2,8 +2,9 @@
 namespace App\Http\Middleware;
 
 use Closure;
-use Illuminate\Http\Request; // Ensure this is correct
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redirect; // Add this import
 use App\Providers\RouteServiceProvider;
 
 class RedirectIfAuthenticated
@@ -22,10 +23,20 @@ class RedirectIfAuthenticated
 
         foreach ($guards as $guard) {
             if (Auth::guard($guard)->check()) {
-                return redirect(RouteServiceProvider::HOME);
+
+                // Get authenticated user
+                $user = Auth::guard($guard)->user();
+
+                // Check user type and redirect accordingly
+                if ($user->type === 0) { // Assuming '0' is the identifier for 'super-admin'
+                    return redirect::route('admin.index'); // Use Redirect::route() here
+                }
+
+                // For regular users, redirect to a default home page
+                return redirect(RouteServiceProvider::HOME); 
             }
         }
 
-        return $next($request);
+        return $next($request); // Continue to the next middleware if not authenticated
     }
 }

@@ -1,97 +1,125 @@
-@extends('layouts.app')
+<html>
+<head>
+    <title>Train Booking</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        .navbar {
+            background-color: #0056b3;
+            padding: 10px;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .navbar h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+        .navbar ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 20px;
+        }
+        .navbar ul li {
+            display: inline;
+        }
+        .navbar ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+        }
+        .navbar ul li a:hover {
+            text-decoration: underline;
+        }
+        .content {
+            text-align: center;
+            padding: 50px 0;
+        }
+        .content h1 {
+            font-size: 72px;
+            margin: 0;
+        }
+        .content p {
+            font-size: 24px;
+            margin: 20px 0;
+        }
+        .content a {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: yellow;
+            color: black;
+            text-decoration: none;
+            font-size: 16px;
+            border-radius: 5px;
+        }
+        .content a:hover {
+            background-color: #ffcc00;
+        }
+        .background-image {
+            background-image: url('/img/stasiun.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 500px;
+            position: relative;
+        }
+        .background-image .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+        .footer {
+    width: 100%; /* Ensures the footer spans the full width */
+    text-align: center; /* Centers the text */
+    background-color: #f8f9fa; /* Optional: Adjust footer background color */
+}
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <h1>BOOK TRAINS</h1>
+        <ul>
+            <li><a href="/paket">SCHEDULE</a></li>
+            <li><a href="/riwayatbooking">RIWAYAT BOOKING</a></li>
+            <!-- Logout Button -->
+            <li>
+                <a  href="{{ route('logout') }}"  onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                    <i class="fas fa-sign-out-alt"></i>
+                </a>
+            </li>
+        </ul>
+    </div>
 
-@section('content')
-<div class="container-fluid p-0">
-    <header class="py-5" style="background-image: url('img/homepage.jpg'); background-size: cover; background-position: center; height: 60vh;">
-        <div class="container px-5">
-            <div class="row justify-content-center text-center">
-                <div class="col-md-10">
-                    <h6 class="fw-bolder mb-2" style="font-size: 12px; color: yellow; text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);">Kapanpun Dimanapun</h6>
-                    <h2 class="display-4" style="color: #ffffff; text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);">Pesan Sekarang Juga!!</h2>
-                    <a class="btn btn-lg px-4 rounded-0 mt-4" style="background-color: khaki; color: #333; font-weight: bold;" href="#">Pesan Sekarang</a>
-                </div>
-            </div>
-        </div>
-    </header>
+    <!-- The background image -->
+    <div class="background-image">
+        <div class="overlay"></div>
+    </div>
 
-    <section class="py-5 text-center">
-        <h2><strong>Cara Kerja Pemesanan</strong></h2>
-    </section>
-
-    <!-- Features section-->
-    <section class="py-5 border-bottom" id="features">
-        <div class="container px-5 my-5">
-            <div class="row gx-5">
-                <div class="col-lg-4 mb-5">
-                    <div class="card h-100">
-                        <div class="card-body text-center">
-                            <div class="feature bg-gradient rounded-3 mb-3 d-flex justify-content-center align-items-center" style="height: 100px;">
-                                <i class="bi bi-hand-index" style="font-size: 36px; color: #007bff;"></i>
-                            </div>
-                            <h2 class="h4 fw-bolder">Langkah 1</h2>
-                            <p>Pilihan Layanan yang Anda Butuhkan!</p>
-                            <p>Dari layanan pencucian Express, Standar, deluxe kami memiliki layanan yang sesuai dengan kebutuhan Anda.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 mb-5">
-                    <div class="card h-100">
-                        <div class="card-body text-center">
-                            <div class="feature bg-gradient rounded-3 mb-3 d-flex justify-content-center align-items-center" style="height: 100px;">
-                                <i class="bi bi-file-text" style="font-size: 36px; color: #007bff;"></i>
-                            </div>
-                            <h2 class="h4 fw-bolder">Langkah 2</h2>
-                            <p>Isi data diri dan lakukan pembayaran</p>
-                            <p>Dari layanan pencucian Express, Standar, deluxe kami memiliki layanan yang sesuai dengan kebutuhan Anda.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 mb-5">
-                    <div class="card h-100">
-                        <div class="card-body text-center">
-                            <div class="feature bg-gradient rounded-3 mb-3 d-flex justify-content-center align-items-center" style="height: 100px;">
-                                <i class="bi bi-credit-card" style="font-size: 36px; color: #007bff;"></i>
-                            </div>
-                            <h2 class="h4 fw-bolder">Langkah 3</h2>
-                            <p>Pemesanan Selesai</p>
-                            <p>Pemesanan selesai dan siap untuk diproses.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Cars Section -->
-    <section class="py-5" id="cars">
-        <div class="container text-center">
-            <div class="row">
-                <div class="col-md-12">
-                    <img src="img/mobil.png" alt="Mobil Orange" class="img-fluid mb-4" style="max-width: 80%; height: auto;">
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-2 col-6">
-                    <p><i class="bi bi-speedometer" style="color: #007bff;"></i> Cepat Tanpa Repot Antri</p>
-                </div>
-                <div class="col-md-2 col-6">
-                    <p><i class="bi bi-person-check" style="color: #007bff;"></i> Bebas Atur Jadwal</p>
-                </div>
-                <div class="col-md-2 col-6">
-                    <p><i class="bi bi-briefcase" style="color: #007bff;"></i> Profesional dan Cepat Tanggap</p>
-                </div>
-                <div class="col-md-2 col-6">
-                    <p><i class="bi bi-shield-lock" style="color: #007bff;"></i> Keamanan Mobil Terjaga</p>
-                </div>
-                <div class="col-md-2 col-6">
-                    <p><i class="bi bi-gear" style="color: #007bff;"></i> Garansi Cuci Kembali</p>
-                </div>
-            </div>
-        </div>
-    </section>
+    <!-- Main content -->
+    <div class="content">
+    <h1>SELAMAT DATANG</h1>
+    <p>Kamu Mau Kemana?</p>
+    <a href="{{ route('paket') }}" class="button">Pesan Tiket</a>
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-<script src="js/scripts.js"></script>
-<script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
-@endsection
+
+    <!-- Hidden Logout Form -->
+    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+        @csrf
+    </form>
+    <!-- Footer -->
+<footer class="footer mt-auto py-3 bg-lightblue">
+    <div class="container text-center">
+        <p class="text-muted mb-0">Copyright 2024 Malang, Jawa Timur, Indonesia</p>
+    </div>
+</footer>
+</body>
+</html>

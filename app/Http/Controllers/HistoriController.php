@@ -1,38 +1,20 @@
 <?php
 
-namespace App\Http\Controllers; // Ensure correct namespace
+namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\YourModel; // Replace with your actual model class
-use Illuminate\Support\Facades\Storage;
+use App\Models\Booking;
 
-class HistoriController extends Controller // Make sure to extend the base controller
+class HistoriController extends Controller
 {
     public function index()
     {
-        // Your logic here, e.g., fetching data from the database
-        return view('historiU'); // Ensure you have this view file
+        // Fetch the history of bookings
+        $bookings = Booking::all(); // Adjust this to your actual query
+    
+        return view('history', compact('bookings'));
     }
-    public function store(Request $request)
-    {
-        $request->validate([
-            'nama' => 'required|string|max:255',
-            'tanggal_pemesanan' => 'required|string',
-            'review' => 'required|string',
-            'file' => 'required|image|mimes:jpg,png,jpeg|max:2048', // Max size 2MB
-        ]);
-
-        // Store the uploaded file
-        $path = $request->file('file')->store('uploads', 'public');
-
-        // Save data in the database
-        Admin::create([
-            'nama' => $request->nama,
-            'tanggal_pemesanan' => $request->tanggal_pemesanan,
-            'review' => $request->review,
-            'file_path' => $path,
-        ]);
-
-        return redirect()->back()->with('success', 'Upload successful!');
-    }
+    
 }
+
+
